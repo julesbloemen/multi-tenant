@@ -7,8 +7,8 @@ addons:
     - local.testing
 
 env:
-  - DB=mariadb
-  - DB=pgsql
+  - DB=mariadb TENANCY_SYSTEM_CONNECTION=mysql
+  - DB=pgsql TENANCY_SYSTEM_CONNECTION=pgsql
 php:
   - 7.1
   - 7.2
