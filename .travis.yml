@@ -1,3 +1,6 @@
+sudo: false
+language: php
+
 addons:
   hosts:
     - tenant.testing
