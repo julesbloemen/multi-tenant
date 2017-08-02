@@ -17,7 +17,9 @@ php:
 jobs:
     allow_failures:
       - php: nightly
+before_install:
+  - travis_retry composer self-update
 install:
-  - composer update --prefer-dist -o
+  - composer update --prefer-dist --no-interaction -o
 script:
   - vendor/bin/phpunit -d memory_limit=512M --colors=never -c ci.phpunit.xml -vv
