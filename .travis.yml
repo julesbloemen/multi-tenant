@@ -17,6 +17,7 @@ php:
 jobs:
     allow_failures:
       - php: nightly
-
+install:
+  - composer update --prefer-dist -o
 script:
   - vendor/bin/phpunit -d memory_limit=512M --colors=never -c ci.phpunit.xml -vv
