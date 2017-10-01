@@ -26,6 +26,6 @@ install:
 before_script:
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS testing;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE testing;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'mariadb' || '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS testing;'; fi"
+  - sh -c "if [ '$DB' = 'mariadb' ] || [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS testing;'; fi"
 script:
   - vendor/bin/phpunit -d memory_limit=512M --colors=never -c ci.phpunit.xml -vv
