@@ -2,6 +2,7 @@ sudo: false
 language: php
 
 addons:
+  mariadb: '10.0'
   hosts:
     - tenant.testing
     - local.testing
@@ -30,3 +31,7 @@ before_script:
   - sh -c "if [ '$DB' = 'mariadb' ] || [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS testing;'; fi"
 script:
   - vendor/bin/phpunit -d memory_limit=512M --colors=never -c ci.phpunit.xml -vv
+
+cache:
+  directories:
+    - $HOME/.composer/cache
