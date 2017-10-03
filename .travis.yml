@@ -8,20 +8,17 @@ addons:
     - local.testing
 
 env:
-  - DB=mysql TENANCY_SYSTEM_CONNECTION_NAME=mysql LIMIT_UUID_LENGTH_32=1 DB_USERNAME=root
-  - DB=mariadb TENANCY_SYSTEM_CONNECTION_NAME=mysql DB_USERNAME=root
-  - DB=pgsql TENANCY_SYSTEM_CONNECTION_NAME=pgsql DB_USERNAME=postgres
+  - DB=mysql WEBSERVER=nginx TENANCY_SYSTEM_CONNECTION_NAME=mysql LIMIT_UUID_LENGTH_32=1 DB_USERNAME=root
+  - DB=mariadb WEBSERVER=nginx TENANCY_SYSTEM_CONNECTION_NAME=mysql DB_USERNAME=root
+  - DB=pgsql WEBSERVER=nginx TENANCY_SYSTEM_CONNECTION_NAME=pgsql DB_USERNAME=postgres
+  - DB=mysql WEBSERVER=apache TENANCY_SYSTEM_CONNECTION_NAME=mysql LIMIT_UUID_LENGTH_32=1 DB_USERNAME=root
+  - DB=mariadb WEBSERVER=apache TENANCY_SYSTEM_CONNECTION_NAME=mysql DB_USERNAME=root
+  - DB=pgsql WEBSERVER=apache TENANCY_SYSTEM_CONNECTION_NAME=pgsql DB_USERNAME=postgres
 php:
   - 7.0
   - 7.1
   - 7.2
   - nightly
-matrix:
-    include:
-      - webserver: apache
-        env: WEBSERVER=apache
-      - webserver: nginx
-        env: WEBSERVER=nginx
 
 jobs:
     allow_failures:
