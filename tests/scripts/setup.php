@@ -12,17 +12,10 @@
  * @see https://github.com/hyn/multi-tenant
  */
 
-if (getenv('TRAVIS_BUILD_DIR')) {
-    putenv('CI_PROJECT_DIR=' . getenv('TRAVIS_BUILD_DIR'));
-}
-
-chdir(getenv('CI_PROJECT_DIR'));
+chdir(getenv('TRAVIS_BUILD_DIR'));
 
 $base_path = __DIR__ . '/../../';
 
-if (getenv('TRAVIS_PHP_VERSION')) {
-    putenv('BUILD_PHP_VERSION=' . getenv('TRAVIS_PHP_VERSION'));
-}
 foreach ([
              "$base_path/vendor/laravel/laravel/config/tenancy.php",
              "$base_path/vendor/laravel/laravel/config/webserver.php",

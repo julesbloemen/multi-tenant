@@ -52,8 +52,8 @@ class Test extends TestCase
     public function createApplication()
     {
         $appPaths = [];
-        if (getenv('CI_PROJECT_DIR')) {
-            $appPaths[] = realpath(getenv('CI_PROJECT_DIR') . '/vendor/laravel/laravel');
+        if (getenv('TRAVIS_BUILD_DIR')) {
+            $appPaths[] = realpath(getenv('TRAVIS_BUILD_DIR') . '/vendor/laravel/laravel');
         }
         $appPaths[] = realpath(__DIR__ . '/..');
         $appPaths[] = realpath(__DIR__ . '/../vendor/laravel/laravel');

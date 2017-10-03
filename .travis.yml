@@ -16,6 +16,12 @@ php:
   - 7.1
   - 7.2
   - nightly
+matrix:
+    include:
+      - webserver: apache
+        env: WEBSERVER=apache
+      - webserver: nginx
+        env: WEBSERVER=nginx
 
 jobs:
     allow_failures:

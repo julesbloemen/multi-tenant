@@ -23,16 +23,8 @@ trait InteractsWithBuilds
 
     public function identifyBuild()
     {
-        $name = env('CI_JOB_NAME');
-
-        if ($name && preg_match(
-            '/^(?<webserver>[a-z]+)\-(?<php_version>[0-9\.]+)\-(?<db>[a-z]+)$/',
-            $name,
-            $m
-        )) {
-            $this->buildWebserver = $m['webserver'];
-            $this->buildPhpVersion = $m['php_version'];
-            $this->buildDb = $m['db'];
-        }
+        $this->buildWebserver = env('WEBSERVER');
+        $this->buildPhpVersion = env('TRAVIS_PHP_VERSION');
+        $this->buildDb = env('DB');
     }
 }
