@@ -197,6 +197,9 @@ return [
          *
          * @info requires tenant-migrations-path to be in use.
          *
+         * @info Note: if you want to run seeds for all tenants you should add this class in the CLI
+         * @example: php artisan tenancy:db:seed --class=App\Seeders\AdminSeeder
+         *
          * @warn specify a valid fully qualified class name.
          * @example App\Seeders\AdminSeeder::class
          */
